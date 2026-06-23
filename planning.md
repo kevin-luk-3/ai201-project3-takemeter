@@ -165,7 +165,7 @@ judged clearly one label rather than weaken the definitions. *Tool: Claude (Opus
 **2. Annotation assistance (pre-labeling) — disclosed.** I used an LLM to pre-label a
 batch of unlabeled posts given the definitions, then reviewed and corrected every row
 myself; its guess was never the final call. This is disclosed in the README's AI usage
-section. *Tool: (name the exact model used) — replace this with the actual tool.*
+section. *Tool: ChatGPT*
 
 **3. Failure analysis (after evaluation).** I gave the confusion matrix and wrong
 predictions to Claude (Opus) and asked for the dominant error pattern, then verified each

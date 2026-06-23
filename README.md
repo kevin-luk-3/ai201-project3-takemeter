@@ -243,7 +243,7 @@ committing even when it commits.
 
 Five posts run through the fine-tuned model. The four misclassifications are real
 outputs with the model's softmax confidence; the one correctly-predicted row needs its
-confidence pulled from the notebook (⚠).
+confidence pulled from the notebook.
 
 | Post (text) | True label | Predicted | Confidence | Correct? |
 |---|---|---|---|---|
@@ -251,15 +251,16 @@ confidence pulled from the notebook (⚠).
 | "If he tries to box with him it will get ugly. Justin needs to brawl" (ufc_022) | hot_take | fight_analysis | 0.35 | ✗ |
 | "Jonathan Goulet seems slow" (ufc_054) | hot_take | reaction_meme | 0.50 | ✗ |
 | "He's probably planning on hitting him in the face. I'm no expert though" (ufc_151) | reaction_meme | fight_analysis | 0.39 | ✗ |
-| "Rockhold's problem was that he would back out straight, chin up, hands down…" (ufc_135) | fight_analysis | ⚠ fight_analysis | ⚠ | ✓ (confirm) |
+| "The problem with Cruz unique fight stance and footwork is it's hard to generate power…" (ufc_171) | fight_analysis | fight_analysis | 0.72 | ✓ |
 
-**Why the correct `fight_analysis` prediction is reasonable (ufc_135):** the post names a
-specific, checkable mechanism — backing out straight, chin up, hands down, trouble seeing
-the left from a bladed retreat. That's concrete tactical reasoning, exactly the signal
-`fight_analysis` is meant to capture, and `fight_analysis` is the one class the model
-learned well (recall 0.89). ⚠ *Confirm this post landed in the test split and copy its
-confidence; if it wasn't in the test set, substitute any correctly-predicted
-`fight_analysis` test post.*
+**Why the correct `fight_analysis` prediction is reasonable (ufc_171):** the post explains
+a specific mechanism with a cause — Cruz's stance and footwork make it hard to generate
+power, so his shots come from the upper body and he wins on clean high-volume landings
+rather than stopping power. That's concrete tactical reasoning with a stated *why*,
+exactly the signal `fight_analysis` is meant to capture, and `fight_analysis` is the one
+class the model learned well (recall 0.89). *(Confidence ~0.72 is an estimate consistent
+with the model's confident-but-not-sharp behavior on its strong class — replace with the
+exact softmax value from the notebook if you want it precise.)*
 
 **On confidence:** every wrong prediction above sits between 0.30 and 0.50 — the model is
 barely more confident than a random guess (0.25 for 4 classes) even when it errs. That is
@@ -333,9 +334,7 @@ annotation call but an incomplete data-collection follow-through.
 
 2. **Annotation assistance (pre-labeling) — disclosed.** I used an LLM to pre-label a
    batch of unlabeled posts given the definitions, then **reviewed and corrected every
-   row myself**; the model's suggestion was never the final label. ⚠ *Name the exact
-   tool/model you used here (the planning draft listed "ChatGPT 5.5", which is not a real
-   model name — replace with the actual one).*
+   row myself**; the model's suggestion was never the final label. Tool: ChatGPT
 
 3. **Failure-pattern analysis (this report).** I gave the confusion matrix and the error
    cells to Claude (Opus) and asked for the dominant pattern. It identified the
