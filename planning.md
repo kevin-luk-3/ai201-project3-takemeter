@@ -141,7 +141,7 @@ I care most about `fight_analysis` recall and `question_prompt` recall. Missing 
 > “How would this fight go? WW wins easily.”
 
 **Could be:** `question_prompt` or `hot_take`  
-**Decision:** `question_prompt` in this revision because the question frame is the dominant structure and the answer is too brief to be a real take. If the answer is longer or more forceful, label by the answer instead.
+**Decision:** `hot_take`. The answer (“WW wins easily”) is the dominant claim; the question is just rhetorical framing. It's asserting a winner, not opening a genuine discussion.
 
 ## Decision Rules for Ambiguous Posts
 

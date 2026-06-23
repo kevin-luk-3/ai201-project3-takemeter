@@ -5,13 +5,7 @@ discourse* they are — reasoned analysis, bare opinion, a question, or a joke. 
 goal is to measure discourse quality in a community where one fight produces wildly
 different kinds of comments in the same thread.
 
-> **Note on scope changes.** This project began as a **3-label, 200-example** design.
-> During annotation the taxonomy was revised to **4 labels and 220 examples** (a
-> `question_prompt` label was split out — see [Spec Reflection](#spec-reflection));
-> `planning.md` has been updated to document that revised design and the reasoning behind
-> it. This README documents the dataset and model **as actually built**.
 
----
 
 ## Community Choice
 
